@@ -177,6 +177,7 @@ func sendConversationRequest(c *gin.Context, request chatgpt.CreateConversationR
 	req.Header.Set("User-Agent", api.UserAgent)
 	req.Header.Set(api.AuthorizationHeader, accessToken)
 	req.Header.Set("Accept", "text/event-stream")
+	req.Header.Set("Connection", "close")
 	if api.PUID != "" {
 		req.Header.Set("Cookie", "_puid="+api.PUID)
 	}

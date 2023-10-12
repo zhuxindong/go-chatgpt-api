@@ -63,6 +63,7 @@ func sendConversationRequest(c *gin.Context, request CreateConversationRequest) 
 	req.Header.Set("User-Agent", api.UserAgent)
 	req.Header.Set(api.AuthorizationHeader, api.GetAccessToken(c))
 	req.Header.Set("Accept", "text/event-stream")
+	req.Header.Set("Connection", "close")
 	if api.PUID != "" {
 		req.Header.Set("Cookie", "_puid="+api.PUID)
 	}
